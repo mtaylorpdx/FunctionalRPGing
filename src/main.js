@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { giveName, game, enemy } from './../src/game.js';
+import { portland, giveName, game, enemy } from './../src/game.js';
 
 
 $(document).ready(function() { 
@@ -21,9 +21,7 @@ $(document).ready(function() {
   $('#fight').click(function() {
     event.preventDefault();
     // function that will create a random opponent based off of player1's level?     
-    const newEnemy = enemy();
-    console.log(newEnemy);
-    // console.log (newEnemy.name);
+    const newEnemy = enemy(portland);
     $('#enemy-name-value').text(newEnemy.name);
     $('#battle-card').show();
   });

@@ -32,7 +32,7 @@ export const enemyTown1MinHP = 10;
 
 // export const initialEnemyValues = {name: bossNameArray[Math.floor(Math.random() * 3) + 0], health: Math.floor(Math.random() * (enemyTown1MaxHP - enemyTown1MinHP)) + enemyTown1MinHP,  };
 
-export const initialEnemyValues = {name: "No Name", health: 0 };
+export const initialEnemyValues = {name: "No Name", health: 0, town: "" };
 
 
 
@@ -60,6 +60,10 @@ export const initialEnemyValues = {name: "No Name", health: 0 };
 export const player1 = storeState(initialCharValues);
 export const enemy = storeState(initialEnemyValues);
 export const game = storeState(initialGameValues);
+
+export const enemyTown = changeState("town");
+export const portland = enemyTown("portland");
+export const newState324344 = enemy(portland);
 
 export const toEat = changeState("food");
 export const hamburger = toEat(10);
