@@ -13,16 +13,16 @@
 </head>
   <body>
     <form class="form-inline">
-      <div class="form-group">
+      <div class="form-group" id="name-form">
         <label for="name">Character Name:</label>
-        <input type="name" class="form-control">
+        <input type="text" id="name" class="form-control">
       </div>
-      <button type="submit" class="btn btn-success">Submit</button>
+      <button class="btn btn-success" id="name-submit">Submit</button>
     </form>
 
 
     <div class="container">
-      <h1>Character:</h1>
+      <h1>Character:<div id="name-value">Nameless</div></h1>
       <button class="btn-success" id="eat">Eat</button>
       <h4>Health:<div id="health-value">0</div></h4>
       <h4>Strength:<div id="strength-value">0</div></h4>

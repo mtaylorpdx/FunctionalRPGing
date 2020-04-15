@@ -87,6 +87,7 @@ export const grabItem2 = changeState("item2");
 export const weapon2 = grabItem2("axe");
 export const newState7 = player1(weapon2);
 
-export const namePlayer = changeState("name");
-export const giveName = namePlayer(`"${input}"`);
-export const newState324 = player1(giveName);
+export const namePlayer = changeState("playerName");
+export const giveName = namePlayer("namehere");
+// :<
+export const newState324 = game(giveName);
