@@ -23,8 +23,9 @@ $(document).ready(function() {
     // function that will create a random opponent based off of player1's level?     
     const newEnemy = enemy(portland);
     $('#enemy-name-value').text(newEnemy.name);
+    $('#enemy-health-value').text(newEnemy.health);
     $('#battle-card').show();
-  });
+  }); 
 
   $('#town').click(function() {
     event.preventDefault();
