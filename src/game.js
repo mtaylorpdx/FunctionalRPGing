@@ -25,6 +25,15 @@ export const initialCharValues = {health: 0, strength: 0, sleep: 0, food: 0, mon
 
 export const initialGameValues = {playerName: "", town: "portland"};
 
+export const bossNameArray = ["Grumpy", "Sleepy", "Dopey", "Happy"];
+
+export const enemyTown1MaxHP = 100;
+export const enemyTown1MinHP = 10;
+
+// export const initialEnemyValues = {name: bossNameArray[Math.floor(Math.random() * 3) + 0], health: Math.floor(Math.random() * (enemyTown1MaxHP - enemyTown1MinHP)) + enemyTown1MinHP,  };
+
+export const initialEnemyValues = {name: "No Name", health: 0 };
+
 
 
 // const gameValues = {
@@ -49,17 +58,19 @@ export const initialGameValues = {playerName: "", town: "portland"};
 
 
 export const player1 = storeState(initialCharValues);
+export const enemy = storeState(initialEnemyValues);
 export const game = storeState(initialGameValues);
 
 export const toEat = changeState("food");
 export const hamburger = toEat(10);
 export const newState1 = player1(hamburger);
 
-
-
+// enemies randomized depending on town?
 export const takeDamage = changeState("health");
 export const vampireHit = takeDamage(-5);
 export const newState2 = player1(vampireHit);
+// run checker after hit, if health == 0, gameover
+
 
 // export const getExp = changeState("experience");
 // export const vampireExp = getExp(10);
@@ -89,5 +100,5 @@ export const newState7 = player1(weapon2);
 
 export const namePlayer = changeState("playerName");
 export const giveName = namePlayer("namehere");
-// :<
 export const newState324 = game(giveName);
+

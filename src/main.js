@@ -1,12 +1,12 @@
 import $ from 'jquery';
-import { player1, hamburger, giveName, game } from './../src/game.js';
+import { giveName, game, enemy } from './../src/game.js';
 
 
 $(document).ready(function() { 
-  $('#eat').click(function() {  
-    const newChar = player1(hamburger);
-    $('#food-value').text(newChar.food);
-  });
+  // $('#eat').click(function() {  
+  //   const newChar = player1(hamburger);
+  //   $('#food-value').text(newChar.food);
+  // });
 
   $('#name-submit').click(function() {
     event.preventDefault();
@@ -15,5 +15,29 @@ $(document).ready(function() {
     $('#name-value').text(newChar.playerName);
     $('#name-form').hide();
     $('#name-submit').hide();
+    $('#playerOptions').show();
   });
+
+  $('#fight').click(function() {
+    event.preventDefault();
+    // function that will create a random opponent based off of player1's level?     
+    const newEnemy = enemy();
+    console.log(newEnemy);
+    // console.log (newEnemy.name);
+    $('#enemy-name-value').text(newEnemy.name);
+    $('#battle-card').show();
+  });
+
+  $('#town').click(function() {
+    event.preventDefault();
+    // add hidden town select screen
+    // $('#townScreen').show();
+  });
+
+  $('#heal').click(function() {
+    event.preventDefault();
+    // add hidden heal div to show temporarily when player heals
+    // $('#healScreen').show();
+  });
+  
 });
