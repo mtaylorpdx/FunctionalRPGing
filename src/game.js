@@ -20,8 +20,17 @@ export const changeState = (prop) => {
   };
 };
 
+export const changeStateString = (prop) => {
+  return (value) => {
+    return (state) => ({
+      ...state,
+      [prop] : (state[prop] || 0).replace((state[prop] || 0), value) 
+    });
+  };
+};
+
 // This allows us to create new characters
-export const initialCharValues = {health: 0, strength: 0, sleep: 0, food: 0, money: 0, experience: 0, level: 0, hirelings:0};
+export const initialCharValues = {health: 100, strength: 1, sleep: 0, food: 0, money: 0, experience: 0, level: 1, hirelings:0};
 
 export const initialGameValues = {playerName: "", town: "portland"};
 
@@ -30,7 +39,7 @@ export const bossNameArray = ["Grumpy", "Sleepy", "Dopey", "Happy"];
 export const enemyTown1MaxHP = 100;
 export const enemyTown1MinHP = 10;
 
-export const initialEnemyValues = {name: bossNameArray[Math.floor(Math.random() * 3) + 0], health: Math.floor(Math.random() * (enemyTown1MaxHP - enemyTown1MinHP)) + enemyTown1MinHP,  };
+export const initialEnemyValues = {name: " ", health: Math.floor(Math.random() * (enemyTown1MaxHP - enemyTown1MinHP)) + enemyTown1MinHP, town: " " };
 
 
 // const gameValues = {
@@ -58,12 +67,13 @@ export const player1 = storeState(initialCharValues);
 export const enemy = storeState(initialEnemyValues);
 export const game = storeState(initialGameValues);
 
-export const enemyTown = changeState("town");
+export const enemyTown = changeStateString("town");
 export const portland = enemyTown("portland");
 export const newState324344 = enemy(portland);
 
-export const enemyName = changeState("name");
-
+export const enemyName = changeStateString("name");
+export const randomName = enemyName((bossNameArray[Math.floor(Math.random() * 3)]));
+export const newStatedsad = enemy(randomName);
 
 export const toEat = changeState("food");
 export const hamburger = toEat(10);

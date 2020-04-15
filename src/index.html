@@ -27,19 +27,20 @@
           <button class="btn-success" id="heal">Heal Yourself</button>
           <button class="btn-success" id="town">Go to Town</button>
           <button class="btn-success" id="fight">Battle</button>
-
-          <h4>Health:<div id="health-value">0</div></h4>
-          <h4>Strength:<div id="strength-value">0</div></h4>
-          <h4>Sleep:<div id="sleep-value">0</div></h4>
-          <h4>Food:<div id="food-value">0</div></h4>
-          <h4>Money:<div id="money-value">0</div></h4>
-          <h4>Experience:<div id="experience-value">0</div></h4>
-          <h4>Level:<div id="level-value">0</div></h4>
-          <h4>Hirelings:<div id="hirelings-value">0</div></h4>
+          <div class="card" id="character-card">
+            <h4>Health:<div id="health-value">0</div></h4>
+            <h4>Strength:<div id="strength-value">0</div></h4>
+            <h4>Sleep:<div id="sleep-value">0</div></h4>
+            <h4>Food:<div id="food-value">0</div></h4>
+            <h4>Money:<div id="money-value">0</div></h4>
+            <h4>Experience:<div id="experience-value">0</div></h4>
+            <h4>Level:<div id="level-value">0</div></h4>
+            <h4>Hirelings:<div id="hirelings-value">0</div></h4>
+          </div>
         </div>
+        <div class="col-md-6">
       <!-- Enemy div to be shown if battle is selected -->
-        <div class="container hidden" id="Enemy">
-          <div class="col-md-6">
+          <div class="card" id="Enemy">
             <h1>Enemy:<div id="enemy-name-value">Nameless</div></h1>
             <h4>Health:<div id="enemy-health-value">0</div></h4>
             <h4>Level:<div id="enemy-level-value">0</div></h4>
