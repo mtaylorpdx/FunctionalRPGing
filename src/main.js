@@ -13,5 +13,7 @@ $(document).ready(function() {
     const newChar = game(giveName);
     newChar.playerName = $('#name').val();
     $('#name-value').text(newChar.playerName);
+    $('#name-form').hide();
+    $('#name-submit').hide();
   });
 });
