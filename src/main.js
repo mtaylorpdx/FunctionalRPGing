@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { randomName, giveName, game, enemy } from './../src/game.js';
+import { randomName, giveName, player1, enemy } from './../src/game.js';
 
 
 $(document).ready(function() { 
@@ -8,10 +8,13 @@ $(document).ready(function() {
   //   $('#food-value').text(newChar.food);
   // });
 
+
   $('#name-submit').click(function() {
     event.preventDefault();
-    const newChar = game(giveName);
+    const newChar = player1(giveName);
+    console.log(newChar);
     newChar.playerName = $('#name').val();
+    $('#health-value').text(newChar.health);
     $('#name-value').text(newChar.playerName);
     $('#name-form').hide();
     $('#name-submit').hide();

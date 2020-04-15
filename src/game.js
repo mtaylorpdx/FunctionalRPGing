@@ -30,9 +30,9 @@ export const changeStateString = (prop) => {
 };
 
 // This allows us to create new characters
-export const initialCharValues = {health: 100, strength: 1, sleep: 0, food: 0, money: 0, experience: 0, level: 1, hirelings:0};
+export const initialCharValues = {playerName: " ", health: 100, strength: 1, sleep: 0, food: 0, money: 0, experience: 0, level: 1, hirelings:0};
 
-export const initialGameValues = {playerName: "", town: "portland"};
+export const initialGameValues = {town: "portland"};
 
 export const bossNameArray = ["Grumpy", "Sleepy", "Dopey", "Happy"];
 
@@ -114,5 +114,5 @@ export const newState7 = player1(weapon2);
 
 export const namePlayer = changeState("playerName");
 export const giveName = namePlayer("namehere");
-export const newState324 = game(giveName);
+export const newState324 = player1(giveName);
 
