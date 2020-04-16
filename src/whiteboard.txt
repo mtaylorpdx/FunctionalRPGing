@@ -1,0 +1,25 @@
+Problem #1
+Solve Problem 1 on Project Euler using a functional approach. Here is the problem:
+
+If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+
+Find the sum of all the multiples of 3 or 5 below 1000.
+
+++++++++++++++++++++
+
+function findSum(counter, inputNumber = 0) {
+  if (isNan(inputNumber)) {
+    return;
+  }
+  else if (counter > 1000)
+  {
+    return inputNumber;
+  }
+  else if {
+    if (counter % 3 === 0 || counter % 5 === 0){
+      const totalSum = inputNumber += counter;
+      findSum(counter + 1, totalSum);
+    }
+  }
+  return findSum(counter + 1, totalSum);
+}
