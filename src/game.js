@@ -42,7 +42,7 @@ export const changeStateString = (prop) => {
 }
 
 // This allows us to create new characters
-export const initialCharValues = {playerName: " ", health: 100, strength: 1, sleep: 0, food: 0, money: 0, experience: 0, level: 1, hirelings:0};
+export const initialCharValues = {playerName: " ", health: 100, strength: 1, sleep: 0, food: 0, money: 0, experience: 0, level: 1, hirelings:0, town: " "};
 
 export const initialGameValues = {town: "portland"};
 
@@ -89,11 +89,11 @@ export const playerportland = playerTown("portland");
 
 export const enemyName = changeStateString("name");
 export const randomName = enemyName((bossNameArray[Math.floor(Math.random() * 3)]));
-export const newStatedsad = enemy(randomName);
+// export const newStatedsad = enemy(randomName);
 
 
 export const toHeal = changeState("health");
-export const heal = toHeal(10);
+// export const heal = toHeal(10);
 
 // enemies randomized depending on town?
 export const takeDamage = changeState("health");
@@ -133,5 +133,5 @@ export const newState7 = player1(weapon2);
 
 export const namePlayer = changeState("playerName");
 export const giveName = namePlayer("namehere");
-export const newState324 = player1(giveName);
+// export const newState324 = player1(giveName);
 

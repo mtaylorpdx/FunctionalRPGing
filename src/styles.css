@@ -33,3 +33,11 @@
 #enemyHeal{
   display: none;
 }
+
+#userRan {
+  display: none;
+}
+
+#enemyRan {
+  display: none;
+}

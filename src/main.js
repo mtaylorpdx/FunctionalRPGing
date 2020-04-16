@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import './styles.css';
-import { changeState, heal, portland, playerPortland, takeDamage, enemyTakeDamage, randomName, giveName, player1, enemy } from './../src/game.js';
+import { heal, portland, playerportland, takeDamage, enemyTakeDamage, randomName, giveName, player1, enemy } from './../src/game.js';
 
 
 $(document).ready(function() { 
@@ -24,7 +24,9 @@ $(document).ready(function() {
   $('#fight').click(function() {
     event.preventDefault();
     // function that will create a random opponent based off of player1's level?     
-    const newEnemy = enemy(randomName);
+
+
+    const newEnemy = enemy(portland);
     const bossNameArray = ["Grumpy", "Sleepy", "Dopey", "Happy", "Sneezy", "Bashful", "Doc"];
     newEnemy.name = bossNameArray[Math.floor(Math.random() * 7)];
     newEnemy.health = Math.floor(Math.random() * (90)) + 10;
@@ -50,11 +52,6 @@ $(document).ready(function() {
     
     $('#health-value').text(newPlayerState.health);
     
-    // for displaying heal message
-    // $('#enemyNameHeal').text(newEnemyState.name);
-    // $('#userNameHeal').text(newPlayerState.playerName);
-    // $('#userHealPoints').text(userHPLost);
-    // $('#enemyHealPoints').text(enemyHPLost);
     // if (money >= 25, +100 health)
   });
 
@@ -64,15 +61,15 @@ $(document).ready(function() {
     setTimeout(function() { $("#userAttack").hide(); }, 2000);
 
     const newEnemyState = enemy(portland);
-    const newPlayerState = player1(playerPortland);
+    const newPlayerState = player1(playerportland);
 
 
-    const takeDamage = changeState("health");
+    // const takeDamage = changeState("health");
     const enemyHit = takeDamage(-2 * newEnemyState.strength);
     const playerDamageTaken = player1(enemyHit);
     
 
-    const enemyTakeDamage = changeState("health");
+    // const enemyTakeDamage = changeState("health");
     const playerHit = enemyTakeDamage(-3 * newPlayerState.strength);
     const enemyDamageTaken = enemy(playerHit);
 
@@ -93,7 +90,32 @@ $(document).ready(function() {
 
   }); 
 
-    // add hidden heal div to show temporarily when player heals
-    // $('#healScreen').show();
-  
+  $('#battleHeal').click(function() {
+    event.preventDefault();
+    $('#userHeal').show();
+    setTimeout(function() { $("#userHeal").hide(); }, 2000);
+
+    // for displaying heal message
+    // $('#enemyNameHeal').text(newEnemyState.name);
+    // $('#userNameHeal').text(newPlayerState.playerName);
+    // $('#userHealPoints').text(userHPLost);
+    // $('#enemyHealPoints').text(enemyHPLost);
+  });
+
+  $('#run').click(function() {
+    event.preventDefault();
+    $('#userRan').show();
+    setTimeout(function() { $("#userRan").hide(); }, 2000);
+    // $('#enemy').hide();
+    setTimeout(function() { $("#enemy").hide(); }, 2000);
+    // $('#playerOptions').show();
+    setTimeout(function() { $("#playerOptions").show(); }, 2000);
+    // $('#battleOptions').hide();
+    setTimeout(function() { $("#battleOptions").hide(); }, 2000);
+
+
+    // for displaying run message
+    // $('#enemyNameRan').text(newEnemyState.name);
+    // $('#userNameRan').text(newPlayerState.playerName);
+  });
 });
