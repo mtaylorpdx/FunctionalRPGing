@@ -34,12 +34,12 @@ $(document).ready(function() {
 
     const newEnemy = enemy(randomName);
     const newEnemyHealth = enemy(randomHealth);
-    // newEnemy.strength = Math.floor(Math.random() * (10)) + 1;
     const newEnemyStrength = enemy(randomStrength);
     console.log (newEnemy);
     $('#enemy-name-value').text(newEnemy.name);
     $('#enemy-health-value').text(newEnemyHealth.health);
     $('#enemy-strength-value').text(newEnemyStrength.strength);
+    $('#enemy-level-value').text(newEnemy.level);
     
     $('#enemyNameHeal').text(newEnemy.name);
     $('#enemyNameAttack').text(newEnemy.name);
