@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import './styles.css';
-import { namePlayer, heal, portland, playerportland, takeDamage, enemyTakeDamage, randomName, giveName, player1, enemy } from './../src/game.js';
+import { randomStrength, randomHealth, namePlayer, heal, portland, playerportland, takeDamage, enemyTakeDamage, randomName, giveName, player1, enemy, battleHeal } from './../src/game.js';
 
 
 $(document).ready(function() { 
@@ -33,14 +33,13 @@ $(document).ready(function() {
 
 
     const newEnemy = enemy(randomName);
-    // const bossNameArray = ["Grumpy", "Sleepy", "Dopey", "Happy", "Sneezy", "Bashful", "Doc"];
-    // newEnemy.name = bossNameArray[Math.floor(Math.random() * 7)];
-    newEnemy.health = Math.floor(Math.random() * (90)) + 10;
-    newEnemy.strength = Math.floor(Math.random() * (10)) + 1;
+    const newEnemyHealth = enemy(randomHealth);
+    // newEnemy.strength = Math.floor(Math.random() * (10)) + 1;
+    const newEnemyStrength = enemy(randomStrength);
     console.log (newEnemy);
     $('#enemy-name-value').text(newEnemy.name);
-    $('#enemy-health-value').text(newEnemy.health);
-    $('#enemy-strength-value').text(newEnemy.strength);
+    $('#enemy-health-value').text(newEnemyHealth.health);
+    $('#enemy-strength-value').text(newEnemyStrength.strength);
     
     $('#enemyNameHeal').text(newEnemy.name);
     $('#enemyNameAttack').text(newEnemy.name);
@@ -60,7 +59,6 @@ $(document).ready(function() {
   $('#heal').click(function() {
     event.preventDefault();
     const newPlayerState = player1(heal);
-    
     $('#health-value').text(newPlayerState.health);
     
     // if (money >= 25, +100 health)
@@ -73,7 +71,6 @@ $(document).ready(function() {
 
     const newEnemyState = enemy(portland);
     const newPlayerState = player1(playerportland);
-    console.log("---" + newPlayerState.playerName);
 
     // const takeDamage = changeState("health");
     const enemyHit = takeDamage(-2 * newEnemyState.strength);
@@ -96,19 +93,18 @@ $(document).ready(function() {
     $('#health-value').text(playerDamageTaken.health);
     $('#enemyNameAttack').text(enemyDamageTaken.name);
     $('#userNameAttack').text(playerDamageTaken.playerName);
-    $('#userHitPoints').text(userHPLost);
-    $('#enemyHitPoints').text(enemyHPLost);
+    $('#userHitPoints').text(enemyHPLost);
+    $('#enemyHitPoints').text(userHPLost);
 
   }); 
 
   $('#battleHeal').click(function() {
     event.preventDefault();
+    const newPlayerState = player1(battleHeal);
+    $('#health-value').text(newPlayerState.health);
     $('#userHeal').show();
     setTimeout(function() { $("#userHeal").hide(); }, 2000);
-
     // for displaying heal message
-    // $('#enemyNameHeal').text(newEnemyState.name);
-    // $('#userNameHeal').text(newPlayerState.playerName);
     // $('#userHealPoints').text(userHPLost);
     // $('#enemyHealPoints').text(enemyHPLost);
   });
@@ -117,16 +113,8 @@ $(document).ready(function() {
     event.preventDefault();
     $('#userRan').show();
     setTimeout(function() { $("#userRan").hide(); }, 2000);
-    // $('#enemy').hide();
     setTimeout(function() { $("#enemy").hide(); }, 2000);
-    // $('#playerOptions').show();
     setTimeout(function() { $("#playerOptions").show(); }, 2000);
-    // $('#battleOptions').hide();
     setTimeout(function() { $("#battleOptions").hide(); }, 2000);
-
-
-    // for displaying run message
-    // $('#enemyNameRan').text(newEnemyState.name);
-    // $('#userNameRan').text(newPlayerState.playerName);
   });
 });

@@ -91,9 +91,15 @@ export const enemyName = changeStateString("name");
 export const randomName = enemyName(bossNameArray[Math.floor(Math.random() * 7)]);
 // export const newStatedsad = enemy(randomName);
 
+export const enemyHealth = changeState("health");
+export const randomHealth = enemyHealth(Math.floor(Math.random() * (100)) + 10);
+
+export const enemyStrength = changeState("strength");
+export const randomStrength = enemyStrength(Math.floor(Math.random() * (10)) + 1);
 
 export const toHeal = changeState("health");
 export const heal = toHeal(10);
+export const battleHeal = toHeal(5);
 
 // enemies randomized depending on town?
 export const takeDamage = changeState("health");
