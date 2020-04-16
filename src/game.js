@@ -20,6 +20,18 @@ export const changeState = (prop) => {
   };
 };
 
+export const doubleChangeState = (prop) => {
+  return (prop2) => {
+    return (value) => {
+      return (state) => ({
+        ...state,
+        [prop] : (state[prop] || 0) + value,
+        [prop2] : (state[prop] || 0) + value
+      });
+    };
+  };
+};
+
 export const changeStateString = (prop) => {
   return (value) => {
     return (state) => ({
@@ -90,7 +102,7 @@ export const enemyHit = takeDamage(-2);
 // run checker after hit, if health == 0, gameover
 
 export const enemyTakeDamage = changeState("health");
-export const playerHit = takeDamage(-3);
+export const playerHit = enemyTakeDamage(-2);
 //export const newState23432423 = enemy(playerHit);
 
 // export const getExp = changeState("experience");

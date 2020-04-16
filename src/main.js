@@ -1,10 +1,10 @@
 import $ from 'jquery';
 import './styles.css';
-import { heal, portland, playerPortland, takeDamage, enemyTakeDamage, randomName, giveName, player1, enemy } from './../src/game.js';
+import { changeState, heal, portland, playerPortland, takeDamage, enemyTakeDamage, randomName, giveName, player1, enemy } from './../src/game.js';
 
 
 $(document).ready(function() { 
-  const currentPlayer = player1();
+  
   $('#name-submit').click(function() {
     event.preventDefault();
     const newChar = player1(giveName);
@@ -46,8 +46,10 @@ $(document).ready(function() {
 
   $('#heal').click(function() {
     event.preventDefault();
-    const newPlayerState = currentPlayer(heal);
+    const newPlayerState = player1(heal);
+    
     $('#health-value').text(newPlayerState.health);
+    
     // for displaying heal message
     // $('#enemyNameHeal').text(newEnemyState.name);
     // $('#userNameHeal').text(newPlayerState.playerName);
@@ -63,10 +65,27 @@ $(document).ready(function() {
 
     const newEnemyState = enemy(portland);
     const newPlayerState = player1(playerPortland);
-    const playerDamageTaken = player1(takeDamage(-2 * newEnemyState.strength));
-    const enemyDamageTaken = enemy(enemyTakeDamage(-3 * newPlayerState.strength));
+
+
+    const takeDamage = changeState("health");
+    const enemyHit = takeDamage(-2 * newEnemyState.strength);
+    const playerDamageTaken = player1(enemyHit);
+    
+
+    const enemyTakeDamage = changeState("health");
+    const playerHit = enemyTakeDamage(-3 * newPlayerState.strength);
+    const enemyDamageTaken = enemy(playerHit);
+
     const userHPLost = newPlayerState.health - playerDamageTaken.health; 
     const enemyHPLost = newEnemyState.health - enemyDamageTaken.health;
+
+
+    console.log(playerDamageTaken);
+    console.log(enemyDamageTaken);
+    console.log(enemyTakeDamage);
+    console.log(takeDamage)
+    $('#enemy-health-value').text(enemyDamageTaken.health);
+    $('#health-value').text(playerDamageTaken.health);
     $('#enemyNameAttack').text(enemyDamageTaken.name);
     $('#userNameAttack').text(playerDamageTaken.playerName);
     $('#userHitPoints').text(userHPLost);
