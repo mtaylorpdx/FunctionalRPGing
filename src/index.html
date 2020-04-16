@@ -8,26 +8,30 @@
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-  <!-- <script type="text/javascript" src="game.js"></script> -->
+  <script type="text/javascript" src="game.js"></script>
   <title>Game</title>
 </head>
   <body>
-    <form class="form-inline">
-      <div class="form-group" id="name-form">
-        <label for="name">Character Name:</label>
-        <input type="text" id="name" class="form-control">
-      </div>
-      <button class="btn btn-success" id="name-submit">Submit</button>
-    </form>
-
     <div class="container">
-      <h1>Character:<div id="name-value">Nameless</div></h1>
+      <form class="form-inline">
+        <div class="form-group" id="name-form">
+          <label for="name">Character Name:</label>
+          <input type="text" id="name" class="form-control">
+        </div>
+        <button class="btn btn-success" id="name-submit">Submit</button>
+      </form>
+
+      <div class="row" id="playerOptions">
+        <button class="btn-success" id="heal">Heal Yourself</button>
+        <button class="btn-success" id="town">Go to Town</button>
+        <button class="btn-success" id="fight">Battle</button>
+      </div>
+
       <div class="row">
-        <div class="col-md-6" id="playerOptions">
-          <button class="btn-success" id="heal">Heal Yourself</button>
-          <button class="btn-success" id="town">Go to Town</button>
-          <button class="btn-success" id="fight">Battle</button>
+        <div class="col-md-6">
           <div class="card" id="character-card">
+            <h1><div id="name-value">Nameless</div></h1>
+            <hr>
             <h4>Health:<div id="health-value">0</div></h4>
             <h4>Strength:<div id="strength-value">0</div></h4>
             <h4>Sleep:<div id="sleep-value">0</div></h4>
@@ -40,12 +44,26 @@
         </div>
         <div class="col-md-6">
       <!-- Enemy div to be shown if battle is selected -->
-          <div class="card" id="Enemy">
+          <div class="card" id="enemy">
             <h1>Enemy:<div id="enemy-name-value">Nameless</div></h1>
             <h4>Health:<div id="enemy-health-value">0</div></h4>
+            <h4>Strength:<div id="enemy-strength-value">0</div></h4>
             <h4>Level:<div id="enemy-level-value">0</div></h4>
           </div>
         </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6" id="battleOptions">
+          <button class="btn-success" id="attack">Attack!</button>
+          <button class="btn-success" id="heal">Heal!</button>
+          <button class="btn-success" id="run">Run!</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12" id="userAttack">
+          <h3><span id="userName"></span> attacked <span id="enemyName"></span>for X hit points</h3>
+        </div>
+
       </div>
     </div>
   </body>

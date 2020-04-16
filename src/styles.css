@@ -1,7 +1,23 @@
-#Enemy {
+#enemy {
   display: none;
 }
 
 #playerOptions{
+  display: none;
+}
+
+.button-row{
+  text-align: center;
+}
+
+#character-card{
+  display: none;
+}
+
+#battleOptions{
+  display: none;
+}
+
+#userAttack {
   display: none;
 }

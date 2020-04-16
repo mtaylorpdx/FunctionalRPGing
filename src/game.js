@@ -9,7 +9,7 @@ export const storeState = (initialState) => {
   };
 };
 
-//This is a function factory. We can easily create more specific functions that alter a p0lant's health, stamina, sleep, and food.a
+//This is a function factory. We can easily create more specific functions that alter a character's health, stamina, sleep, and food.
 
 export const changeState = (prop) => {
   return (value) => {
@@ -24,22 +24,22 @@ export const changeStateString = (prop) => {
   return (value) => {
     return (state) => ({
       ...state,
-      [prop] : (state[prop] || 0).replace((state[prop] || 0), value) 
-    });
-  };
-};
+      [prop] : value
+    })
+  }
+}
 
 // This allows us to create new characters
 export const initialCharValues = {playerName: " ", health: 100, strength: 1, sleep: 0, food: 0, money: 0, experience: 0, level: 1, hirelings:0};
 
 export const initialGameValues = {town: "portland"};
 
-export const bossNameArray = ["Grumpy", "Sleepy", "Dopey", "Happy"];
+export const bossNameArray = ["Grumpy", "Sleepy", "Dopey", "Happy", "Sneezy", "Bashful", "Doc"];
 
 export const enemyTown1MaxHP = 100;
 export const enemyTown1MinHP = 10;
 
-export const initialEnemyValues = {name: " ", health: Math.floor(Math.random() * (enemyTown1MaxHP - enemyTown1MinHP)) + enemyTown1MinHP, town: " " };
+export const initialEnemyValues = {name: " ", health: 0, strength: 0, town: " ", level: 1 };
 
 
 // const gameValues = {
@@ -75,14 +75,15 @@ export const enemyName = changeStateString("name");
 export const randomName = enemyName((bossNameArray[Math.floor(Math.random() * 3)]));
 export const newStatedsad = enemy(randomName);
 
-export const toEat = changeState("food");
-export const hamburger = toEat(10);
-export const newState1 = player1(hamburger);
+
+// export const toEat = changeState("food");
+// export const hamburger = toEat(10);
+// export const newState1 = player1(hamburger);
 
 // enemies randomized depending on town?
 export const takeDamage = changeState("health");
-export const vampireHit = takeDamage(-5);
-export const newState2 = player1(vampireHit);
+export const dwarfHit = takeDamage(-5);
+// export const newState2 = player1(dwarfHit);
 // run checker after hit, if health == 0, gameover
 
 
@@ -92,7 +93,7 @@ export const newState2 = player1(vampireHit);
 
 export const winBattle = changeState("level");
 export const battleWon = winBattle(1);
-export const newState3 = player1(battleWon);
+// export const newState3 = player1(battleWon);
 
 //if player level to 5, change game object town?
 
