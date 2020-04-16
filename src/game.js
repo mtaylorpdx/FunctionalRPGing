@@ -88,12 +88,12 @@ export const playerportland = playerTown("portland");
 // export const newState324344d = player1(playerPortland);
 
 export const enemyName = changeStateString("name");
-export const randomName = enemyName((bossNameArray[Math.floor(Math.random() * 3)]));
+export const randomName = enemyName(bossNameArray[Math.floor(Math.random() * 7)]);
 // export const newStatedsad = enemy(randomName);
 
 
 export const toHeal = changeState("health");
-// export const heal = toHeal(10);
+export const heal = toHeal(10);
 
 // enemies randomized depending on town?
 export const takeDamage = changeState("health");
@@ -132,6 +132,6 @@ export const weapon2 = grabItem2("axe");
 export const newState7 = player1(weapon2);
 
 export const namePlayer = changeState("playerName");
-export const giveName = namePlayer("namehere");
+// export const giveName = namePlayer("namehere");
 // export const newState324 = player1(giveName);
 

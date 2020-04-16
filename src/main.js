@@ -1,17 +1,23 @@
 import $ from 'jquery';
 import './styles.css';
-import { heal, portland, playerportland, takeDamage, enemyTakeDamage, randomName, giveName, player1, enemy } from './../src/game.js';
+import { namePlayer, heal, portland, playerportland, takeDamage, enemyTakeDamage, randomName, giveName, player1, enemy } from './../src/game.js';
 
 
 $(document).ready(function() { 
   
   $('#name-submit').click(function() {
     event.preventDefault();
+    const giveName = namePlayer($('#name').val());
     const newChar = player1(giveName);
     console.log(newChar);
-    newChar.playerName = $('#name').val();
+    // newChar.playerName = $('#name').val();
+    
     $('#health-value').text(newChar.health);
     $('#name-value').text(newChar.playerName);
+    $('#userNameHeal').text(newChar.playerName);
+    $('#userNameAttack').text(newChar.playerName);
+    $('#userNameRan').text(newChar.playerName);
+
     $('#strength-value').text(newChar.strength);
     $('#level-value').text(newChar.level);
     $('#name-form').hide();
@@ -26,15 +32,20 @@ $(document).ready(function() {
     // function that will create a random opponent based off of player1's level?     
 
 
-    const newEnemy = enemy(portland);
-    const bossNameArray = ["Grumpy", "Sleepy", "Dopey", "Happy", "Sneezy", "Bashful", "Doc"];
-    newEnemy.name = bossNameArray[Math.floor(Math.random() * 7)];
+    const newEnemy = enemy(randomName);
+    // const bossNameArray = ["Grumpy", "Sleepy", "Dopey", "Happy", "Sneezy", "Bashful", "Doc"];
+    // newEnemy.name = bossNameArray[Math.floor(Math.random() * 7)];
     newEnemy.health = Math.floor(Math.random() * (90)) + 10;
     newEnemy.strength = Math.floor(Math.random() * (10)) + 1;
     console.log (newEnemy);
     $('#enemy-name-value').text(newEnemy.name);
     $('#enemy-health-value').text(newEnemy.health);
     $('#enemy-strength-value').text(newEnemy.strength);
+    
+    $('#enemyNameHeal').text(newEnemy.name);
+    $('#enemyNameAttack').text(newEnemy.name);
+    $('#enemyNameRan').text(newEnemy.name);
+    
     $('#enemy').show();
     $('#playerOptions').hide();
     $('#battleOptions').show();
@@ -62,7 +73,7 @@ $(document).ready(function() {
 
     const newEnemyState = enemy(portland);
     const newPlayerState = player1(playerportland);
-
+    console.log("---" + newPlayerState.playerName);
 
     // const takeDamage = changeState("health");
     const enemyHit = takeDamage(-2 * newEnemyState.strength);
