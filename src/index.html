@@ -32,7 +32,7 @@
           <div class="card" id="character-card">
             <h1><div id="name-value">Nameless</div></h1>
             <hr>
-            <h4>Health:<div id="health-value">0</div></h4>
+            <h4>Health:<div id="health-value">100</div></h4>
             <h4>Strength:<div id="strength-value">0</div></h4>
             <h4>Sleep:<div id="sleep-value">0</div></h4>
             <h4>Food:<div id="food-value">0</div></h4>
@@ -46,6 +46,7 @@
       <!-- Enemy div to be shown if battle is selected -->
           <div class="card" id="enemy">
             <h1>Enemy:<div id="enemy-name-value">Nameless</div></h1>
+            <hr>
             <h4>Health:<div id="enemy-health-value">0</div></h4>
             <h4>Strength:<div id="enemy-strength-value">0</div></h4>
             <h4>Level:<div id="enemy-level-value">0</div></h4>
@@ -61,9 +62,20 @@
       </div>
       <div class="row">
         <div class="col-md-12" id="userAttack">
-          <h3><span id="userName"></span> attacked <span id="enemyName"></span>for X hit points</h3>
+          <h3><span id="userNameAttack"></span> attacked <span id="enemyNameAttack"></span>for <span id="userHitPoints"></span>points!</h3>
         </div>
+        <div class="col-md-12" id="enemyAttack">
+          <h3><span id="enemyNameAttack"></span> attacked <span id="userNameAttack"></span>for <span id="enemyHitPoints"></span>points!</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12" id="userHeal">
+          <h3><span id="userNameHeal"></span> healed for <span id="userHealPoints"></span>points!</h3>
+        </div>
+        <div class="col-md-12" id="enemyHeal">
+          <h3><span id="enemyNameHeal"></span> healed for <span id="enemyHealPoints"></span>points!</h3>
 
+        </div>
       </div>
     </div>
   </body>

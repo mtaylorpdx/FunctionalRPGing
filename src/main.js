@@ -1,15 +1,10 @@
 import $ from 'jquery';
 import './styles.css';
-import { randomName, giveName, player1, enemy } from './../src/game.js';
+import { heal, portland, playerPortland, takeDamage, enemyTakeDamage, randomName, giveName, player1, enemy } from './../src/game.js';
 
 
 $(document).ready(function() { 
-  // $('#eat').click(function() {  
-  //   const newChar = player1(hamburger);
-  //   $('#food-value').text(newChar.food);
-  // });
-
-
+  const currentPlayer = player1();
   $('#name-submit').click(function() {
     event.preventDefault();
     const newChar = player1(giveName);
@@ -51,15 +46,32 @@ $(document).ready(function() {
 
   $('#heal').click(function() {
     event.preventDefault();
+    const newPlayerState = currentPlayer(heal);
+    $('#health-value').text(newPlayerState.health);
+    // for displaying heal message
+    // $('#enemyNameHeal').text(newEnemyState.name);
+    // $('#userNameHeal').text(newPlayerState.playerName);
+    // $('#userHealPoints').text(userHPLost);
+    // $('#enemyHealPoints').text(enemyHPLost);
     // if (money >= 25, +100 health)
   });
 
   $('#attack').click(function() {
-  event.preventDefault();
-  $('#userAttack').show().delay(3000).fadeout();
-  // const newEnemystate = enemy(attack)
-  // $('#enemyName').text(newEnemystate.name);
-  // $('#userName').text(newChar.playerName);
+    event.preventDefault();
+    $("#userAttack").show();
+    setTimeout(function() { $("#userAttack").hide(); }, 2000);
+
+    const newEnemyState = enemy(portland);
+    const newPlayerState = player1(playerPortland);
+    const playerDamageTaken = player1(takeDamage(-2 * newEnemyState.strength));
+    const enemyDamageTaken = enemy(enemyTakeDamage(-3 * newPlayerState.strength));
+    const userHPLost = newPlayerState.health - playerDamageTaken.health; 
+    const enemyHPLost = newEnemyState.health - enemyDamageTaken.health;
+    $('#enemyNameAttack').text(enemyDamageTaken.name);
+    $('#userNameAttack').text(playerDamageTaken.playerName);
+    $('#userHitPoints').text(userHPLost);
+    $('#enemyHitPoints').text(enemyHPLost);
+
   }); 
 
     // add hidden heal div to show temporarily when player heals

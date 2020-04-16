@@ -18,6 +18,18 @@
   display: none;
 }
 
-#userAttack {
+#userAttack{
+  display: none;
+}
+
+#enemyAttack{
+  display: none;
+}
+
+#userHeal{
+  display: none;
+}
+
+#enemyHeal{
   display: none;
 }

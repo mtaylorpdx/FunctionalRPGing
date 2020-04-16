@@ -69,23 +69,29 @@ export const game = storeState(initialGameValues);
 
 export const enemyTown = changeStateString("town");
 export const portland = enemyTown("portland");
-export const newState324344 = enemy(portland);
+// export const newState324344 = enemy(portland);
+
+export const playerTown = changeStateString("town");
+export const playerportland = playerTown("portland");
+// export const newState324344d = player1(playerPortland);
 
 export const enemyName = changeStateString("name");
 export const randomName = enemyName((bossNameArray[Math.floor(Math.random() * 3)]));
 export const newStatedsad = enemy(randomName);
 
 
-// export const toEat = changeState("food");
-// export const hamburger = toEat(10);
-// export const newState1 = player1(hamburger);
+export const toHeal = changeState("health");
+export const heal = toHeal(10);
 
 // enemies randomized depending on town?
 export const takeDamage = changeState("health");
-export const dwarfHit = takeDamage(-5);
-// export const newState2 = player1(dwarfHit);
+export const enemyHit = takeDamage(-2);
+// export const newState2 = player1(enemyHit);
 // run checker after hit, if health == 0, gameover
 
+export const enemyTakeDamage = changeState("health");
+export const playerHit = takeDamage(-3);
+//export const newState23432423 = enemy(playerHit);
 
 // export const getExp = changeState("experience");
 // export const vampireExp = getExp(10);
